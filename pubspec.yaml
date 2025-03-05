@@ -1,0 +1,29 @@
+name: hover_scale_handler
+description: "A Flutter widget that adds hover and tap scale animations to any widget, enhancing user interaction with visual feedback."
+version: 1.0.0
+repository: https://github.com/intuosol/hover_scale_handler
+homepage: https://github.com/intuosol/hover_scale_handler
+issue_tracker: https://github.com/intuosol/hover_scale_handler/issues
+
+topics:
+  - ui
+  - interaction
+  - animation
+  - hover
+  - scale
+  - flutter
+
+environment:
+  sdk: ^3.7.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:

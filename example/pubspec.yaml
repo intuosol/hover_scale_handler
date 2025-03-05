@@ -1,0 +1,21 @@
+name: hover_scale_handler_example
+description: Examples for the hover_scale_handler package
+publish_to: 'none'
+
+environment:
+  sdk: ^3.7.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  hover_scale_handler:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
