@@ -48,7 +48,7 @@ jobs:
       - name: 'Build web app'
         run: |
           cd example
-          flutter build web --base-href='/hover_scale_handler/' --web-renderer=auto
+          flutter build web --base-href='/hover_scale_handler/'
 
       - name: 'Deploy web app'
         uses: JamesIves/github-pages-deploy-action@v4
