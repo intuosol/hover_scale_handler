@@ -35,7 +35,7 @@ jobs:
       - name: 'Flutter clean before build'
         run: |
           flutter clean
-          cd 'example'
+          cd example
           flutter clean
 
       - name: 'Get dependencies'
@@ -44,6 +44,11 @@ jobs:
 
       - name: 'Show outdated packages'
         run: flutter pub outdated
+
+      - name: 'Create web directory'
+        run: |
+          cd example
+          flutter create --platforms=web .
 
       - name: 'Build web app'
         run: |
