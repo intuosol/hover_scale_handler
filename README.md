@@ -5,6 +5,8 @@
 
 A lightweight Flutter widget by IntuoSol that adds hover and tap scale animations to any widget, enhancing user interaction with visual feedback.
 
+Try it out in the [example app](https://intuosol.github.io/hover_scale_handler/).
+
 ## Features
 
 - Scales widgets up when hovered over with a mouse
@@ -138,7 +140,7 @@ The `HoverScaleHandler` widget is highly customizable:
 HoverScaleHandler(
   // Required parameters
   child: myWidget,
-  
+
   // Optional parameters with their default values
   onTap: () {}, // If null, hover effect is disabled
   tooltip: '', // Tooltip text shown on hover
@@ -148,11 +150,11 @@ HoverScaleHandler(
   tooltipWaitDuration: const Duration(milliseconds: 500), // Delay before showing tooltip
   tapAnimationDelay: const Duration(milliseconds: 50), // Additional delay after tap animation
   cursor: SystemMouseCursors.click, // Cursor to show when hovering
-  
+
   // Animation customization
   curve: Curves.easeInOut, // Animation curve for scaling up
   reverseCurve: null, // Animation curve for scaling down (uses curve if null)
-  
+
   // Behavior customization
   hitTestBehavior: HitTestBehavior.opaque, // Controls how hit testing works
   enableFeedback: false, // Whether to provide haptic feedback when tapped
