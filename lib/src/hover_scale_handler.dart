@@ -109,9 +109,12 @@ class HoverScaleHandlerState extends State<HoverScaleHandler> {
   @override
   Widget build(BuildContext context) {
     // Default cursor is click if the onTap is provided, otherwise basic
-    final MouseCursor mouseCursor = widget.cursor ?? 
-        (widget.onTap != null ? SystemMouseCursors.click : SystemMouseCursors.basic);
-    
+    final MouseCursor mouseCursor =
+        widget.cursor ??
+        (widget.onTap != null
+            ? SystemMouseCursors.click
+            : SystemMouseCursors.basic);
+
     // If onTap is null, we don't need hover effects
     final bool enableHoverEffect = widget.onTap != null;
 
@@ -124,61 +127,65 @@ class HoverScaleHandlerState extends State<HoverScaleHandler> {
       waitDuration: widget.tooltipWaitDuration,
       child: MouseRegion(
         cursor: mouseCursor,
-        onEnter: enableHoverEffect
-            ? (PointerEvent event) => setState(() {
+        onEnter:
+            enableHoverEffect
+                ? (PointerEvent event) => setState(() {
                   isHovering = true;
                   currentScale = widget.scaleOnHover;
                 })
-            : null,
-        onExit: enableHoverEffect
-            ? (PointerEvent event) => setState(() {
+                : null,
+        onExit:
+            enableHoverEffect
+                ? (PointerEvent event) => setState(() {
                   isHovering = false;
                   currentScale = widget.defaultScale;
                 })
-            : null,
+                : null,
         child: GestureDetector(
           behavior: widget.hitTestBehavior,
-          onTap: widget.onTap == null
-              ? null
-              : () async {
-                  if (tapped) {
-                    return;
-                  }
+          onTap:
+              widget.onTap == null
+                  ? null
+                  : () async {
+                    if (tapped) {
+                      return;
+                    }
 
-                  tapped = true;
+                    tapped = true;
 
-                  // Provide haptic feedback if enabled
-                  if (widget.enableFeedback) {
-                    HapticFeedback.lightImpact();
-                  }
+                    // Provide haptic feedback if enabled
+                    if (widget.enableFeedback) {
+                      HapticFeedback.lightImpact();
+                    }
 
-                  setState(() {
-                    currentScale = widget.defaultScale;
-                  });
-
-                  await Future<void>.delayed(
-                    Duration(
-                      milliseconds: widget.animationDuration.inMilliseconds +
-                          widget.tapAnimationDelay.inMilliseconds,
-                    ),
-                  );
-
-                  setState(() {
-                    currentScale = widget.scaleOnHover;
-                  });
-
-                  await Future<void>.delayed(widget.animationDuration);
-
-                  if (!isHovering) {
                     setState(() {
                       currentScale = widget.defaultScale;
                     });
-                  }
 
-                  widget.onTap?.call();
+                    await Future<void>.delayed(
+                      Duration(
+                        milliseconds:
+                            widget.animationDuration.inMilliseconds +
+                            widget.tapAnimationDelay.inMilliseconds,
+                      ),
+                    );
 
-                  tapped = false;
-                },
+                    setState(() {
+                      currentScale = widget.scaleOnHover;
+                    });
+
+                    await Future<void>.delayed(widget.animationDuration);
+
+                    if (!isHovering) {
+                      setState(() {
+                        currentScale = widget.defaultScale;
+                      });
+                    }
+
+                    widget.onTap?.call();
+
+                    tapped = false;
+                  },
           child: AnimatedScale(
             scale: currentScale,
             duration: widget.animationDuration,

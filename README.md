@@ -1,11 +1,16 @@
-# HoverScaleHandler
+# HoverScaleHandler <img src="https://raw.githubusercontent.com/intuosol/intuosol_design_system/main/assets/logos/by_intuosol.png" alt="Icon" width="250" style="margin-left: 20px;">
 
+[![platform](https://img.shields.io/badge/platform-flutter-blue.svg)](https://flutter.dev)
 [![pub package](https://img.shields.io/pub/v/hover_scale_handler.svg)](https://pub.dev/packages/hover_scale_handler)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![pub points](https://img.shields.io/pub/points/hover_scale_handler)](https://pub.dev/packages/hover_scale_handler/score)
+[![documentation](https://img.shields.io/badge/api-documentation-blue.svg)](https://pub.dev/documentation/hover_scale_handler)
+[![interactive demo](https://img.shields.io/badge/interactive-demo-white.svg)](https://intuosol.github.io/hover_scale_handler/)
+[![last updated](https://img.shields.io/github/last-commit/intuosol/hover_scale_handler.svg)](https://github.com/intuosol/hover_scale_handler/commits/main)
+[![by](https://img.shields.io/badge/by-IntuoSol-success.svg)](https://intuosol.com)
 
-A lightweight Flutter widget by IntuoSol that adds hover and tap scale animations to any widget, enhancing user interaction with visual feedback.
+A Flutter widget that adds hover and tap scale animations to any widget, enhancing user interaction with visual feedback.
 
-Try it out in the [example app](https://intuosol.github.io/hover_scale_handler/).
+Try it out in the [demo app](https://intuosol.github.io/hover_scale_handler/).
 
 ## Features
 
@@ -14,15 +19,6 @@ Try it out in the [example app](https://intuosol.github.io/hover_scale_handler/)
 - Works with any Flutter widget
 - Customizable tooltip support
 - Simple and easy to use
-
-## Getting started
-
-Add the package to your `pubspec.yaml`:
-
-```yaml
-dependencies:
-  hover_scale_handler: ^1.0.0
-```
 
 ## Usage
 
@@ -53,28 +49,6 @@ HoverScaleHandler(
 ```
 
 ### Examples
-
-#### Button with hover effect
-
-```dart
-HoverScaleHandler(
-  tooltip: 'Click to increment',
-  onTap: () {
-    // Handle button press
-  },
-  child: Container(
-    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-    decoration: BoxDecoration(
-      color: Colors.blue,
-      borderRadius: BorderRadius.circular(8),
-    ),
-    child: const Text(
-      'Tap Me',
-      style: TextStyle(color: Colors.white),
-    ),
-  ),
-)
-```
 
 #### Card with hover effect
 
@@ -152,8 +126,8 @@ HoverScaleHandler(
   cursor: SystemMouseCursors.click, // Cursor to show when hovering
 
   // Animation customization
-  curve: Curves.easeInOut, // Animation curve for scaling up
-  reverseCurve: null, // Animation curve for scaling down (uses curve if null)
+  curve: Curves.easeInOut, // Animation curve when hovering and tapping
+  reverseCurve: null, // Animation curve on hover exit (uses curve if null)
 
   // Behavior customization
   hitTestBehavior: HitTestBehavior.opaque, // Controls how hit testing works
@@ -168,25 +142,9 @@ You can use different animation curves to control how the scaling effect behaves
 ```dart
 // Using a bounce effect for more playful animations
 HoverScaleHandler(
-  curve: Curves.bounceOut, // Bouncy animation when scaling up
-  reverseCurve: Curves.easeOut, // Smooth animation when scaling down
+  curve: Curves.bounceOut, // Bouncy animation on hover and tap
+  reverseCurve: Curves.easeOut, // Smooth animation on hover exit
   onTap: () => print('Tapped with bounce effect'),
-  child: myWidget,
-)
-```
-
-#### Hit Test Behavior
-
-The `hitTestBehavior` parameter controls how the widget responds to gestures:
-
-- `HitTestBehavior.opaque` (default): The widget will receive taps even if tapping on transparent parts
-- `HitTestBehavior.translucent`: The widget and those below it will both receive taps
-- `HitTestBehavior.deferToChild`: Only the non-transparent parts of the widget will receive taps
-
-```dart
-HoverScaleHandler(
-  hitTestBehavior: HitTestBehavior.deferToChild,
-  onTap: () => print('Only non-transparent areas are tappable'),
   child: myWidget,
 )
 ```
@@ -214,23 +172,3 @@ HoverScaleHandler(
   child: myWidget,
 )
 ```
-
-## Additional information
-
-- Check out the `/example` folder for a complete demo app showing various use cases
-- Works on all platforms supported by Flutter, but hover effects are most noticeable on desktop platforms
-- Fully customizable with options for animation duration, scale values, and tooltip wait duration
-- No third-party dependencies, just pure Flutter
-- Lightweight and performant
-
-## About
-
-Developed and maintained by [IntuoSol](https://intuosol.com), a company dedicated to building high-quality Flutter packages and solutions.
-
-## Contributing
-
-Contributions are welcome! If you encounter any issues or have feature requests, please file them in the [issue tracker](https://github.com/intuosol/hover_scale_handler/issues).
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
