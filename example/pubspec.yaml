@@ -1,6 +1,6 @@
 name: hover_scale_handler_example
 description: Examples for the hover_scale_handler package
-publish_to: 'none'
+publish_to: "none"
 
 environment:
   sdk: ^3.7.0
@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   hover_scale_handler:
     path: ../
+  intuosol_design_system: ^0.3.0
+  widget_snippet: ^0.1.1
 
 dev_dependencies:
   flutter_test:
